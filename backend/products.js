@@ -5,7 +5,7 @@ const products = [
     description:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elite. Sequi, perferendis beatae asperiores.",
     price: 100,
-    imageLink: "",
+    imageLink: "https://res.cloudinary.com/dvytkrzaq/image/upload/v1679222689/online%20store/2_brukkm.jpg",
   },
   {
     id: 2,
@@ -13,7 +13,7 @@ const products = [
     description:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elite. Sequi, perferendis beatae asperiores.",
     price: 200,
-    imageLink: "",
+    imageLink: "https://res.cloudinary.com/dvytkrzaq/image/upload/v1679222690/online%20store/1_j9hpim.jpg",
   },
   {
     id: 3,
@@ -21,7 +21,7 @@ const products = [
     description:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elite. Sequi, perferendis beatae asperiores.",
     price: 300,
-    imageLink: "",
+    imageLink: "https://res.cloudinary.com/dvytkrzaq/image/upload/v1679222689/online%20store/4_vtt0pb.jpg",
   },
   {
     id: 4,
@@ -29,7 +29,7 @@ const products = [
     description:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elite. Sequi, perferendis beatae asperiores.",
     price: 400,
-    imageLink: "",
+    imageLink: "https://res.cloudinary.com/dvytkrzaq/image/upload/v1679222689/online%20store/3_bpqlod.jpg",
   },
  ];
  module.exports = products;
