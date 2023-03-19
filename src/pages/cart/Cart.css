@@ -1,0 +1,44 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media(max-width:750px){
+
+
+  .cart-paper{
+width:300px !important;
+
+  }
+
+  .add-remove{
+    margin:0 !important;
+  }
+
+}
+
+
+@media(max-width:315px){
+
+
+  .cart-paper{
+width:150px !important;
+
+  }
+
+  .add-remove{
+    margin:0 !important;
+  }
+
+}
