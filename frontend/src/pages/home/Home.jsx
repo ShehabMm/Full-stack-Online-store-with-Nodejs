@@ -8,6 +8,8 @@ import Button from '@mui/material/Button'
 import { Stack } from "@mui/material";
 import { useGetproductsByNameQuery } from '../../Redux/productsApi'
 import CircularProgress from '@mui/material/CircularProgress';
+import { addToCart } from "Redux/counterSlice";
+import { useDispatch } from 'react-redux'
 
 
 
@@ -15,8 +17,17 @@ import CircularProgress from '@mui/material/CircularProgress';
 const Home = () => {
 
 
-  const { data, error, isLoading } = useGetproductsByNameQuery()
-  console.log(data)
+  const { data, isLoading } = useGetproductsByNameQuery()
+  const dispatch = useDispatch()
+
+
+  // if (error) {
+  //   return (
+  //     <h1>sorry something wrong</h1>
+
+  //   )
+  // }
+
 
 
   if (isLoading) {
@@ -42,7 +53,7 @@ const Home = () => {
           return (
 
 
-            <Card  className="card" key={item.id} sx={{ maxWidth: 277, mb: 6, mx: 2 }}>
+            <Card className="card" key={item.id} sx={{ maxWidth: 277, mb: 6, mx: 2 }}>
 
               <CardMedia
                 component="img"
@@ -56,7 +67,16 @@ const Home = () => {
                 </Typography>
               </CardContent>
               <CardActions disableSpacing sx={{ justifyContent: "space-between" }}   >
-                <Button sx={{ textTransform: "capitalize", lineHeight: "1", padding: "1.1" }} variant="contained" color="primary">
+                <Button
+                  onClick={() => {
+
+                    dispatch(addToCart(item))
+
+
+
+                  }}
+
+                  sx={{ textTransform: "capitalize", lineHeight: "1", padding: "1.1" }} variant="contained" color="primary">
                   Add to Cart
                 </Button>
 

@@ -16,15 +16,17 @@ import ListItemText from "@mui/material/ListItemText";
 import {
   Brightness4,
   Brightness7,
-  Create,
+
   Home,
-  Logout,
-  Person2,
-  Settings,
+
+
+  
   ShoppingCart,
 } from "@mui/icons-material";
 
 import { useLocation, useNavigate } from "react-router-dom";
+import { useSelector } from 'react-redux'
+
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   "& .MuiBadge-badge": {
@@ -45,12 +47,18 @@ const Drawerr = ({
   const currentLocation = useLocation();
 
   const navigate = useNavigate();
+  // @ts-ignore
+  const { allProducts } = useSelector((state) => state.counter);
+
   const theme = useTheme();
 
   const myList = [
     { text: "Home", icon: <Home />, path: "/" },
     {
-      text: "Cart",icon: (<StyledBadge badgeContent={1} color="secondary"><ShoppingCart />
+      text: "Cart",
+      icon: (
+        <StyledBadge badgeContent={allProducts.length} color="secondary">
+          <ShoppingCart />
         </StyledBadge>
       ),
       path: "/cart",
