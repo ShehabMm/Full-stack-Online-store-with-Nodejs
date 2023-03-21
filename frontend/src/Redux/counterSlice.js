@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   allProducts: [],
+  allProductsID: [],
 };
 
 export const counterSlice = createSlice({
@@ -11,9 +12,8 @@ export const counterSlice = createSlice({
     addToCart: (state, action) => {
       const productWithQuantity = { ...action.payload, quantity: 1 };
       state.allProducts.push(productWithQuantity);
+      state.allProductsID.push(action.payload.id);
     },
-
-
 
     addQuantity: (state, action) => {
       const choseItem = state.allProducts.find((item) => {
@@ -22,8 +22,6 @@ export const counterSlice = createSlice({
 
       choseItem.quantity += 1;
     },
-
-
 
     decreaseQuantity: (state, action) => {
       const choseItem = state.allProducts.find((item) => {
@@ -40,18 +38,12 @@ export const counterSlice = createSlice({
       }
     },
 
-
-
-
     deleteProduct: (state, action) => {
       const newArray = state.allProducts.filter((item) => {
         return item.id !== action.payload.id;
       });
       state.allProducts = newArray;
     },
-
-
-
   },
 });
 

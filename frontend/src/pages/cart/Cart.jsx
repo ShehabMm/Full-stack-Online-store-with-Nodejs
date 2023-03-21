@@ -73,7 +73,7 @@ const Cart = () => {
 
 
 
-              className="add-remove" sx={{ ml: 1, mr: 2 }}
+              className="add-remove" sx={{ ml: 1, mr: 1 }}
 
               onClick={() => {
 
@@ -110,7 +110,7 @@ const Cart = () => {
               Tshirt
             </Typography>
 
-            <img src={item.imageLink} alt="" />
+            <img src={item.imageLink[2]} alt="" />
           </Paper>
 
         )
