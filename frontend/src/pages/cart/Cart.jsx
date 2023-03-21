@@ -8,7 +8,7 @@ import Badge from "@mui/material/Badge";
 import "./Cart.css";
 import Divider from "@mui/material/Divider";
 import { useSelector, useDispatch } from 'react-redux'
-import { addQuantity, decreaseQuantity } from "Redux/counterSlice";
+import { addQuantity, decreaseQuantity, deleteProduct } from "Redux/counterSlice";
 
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
@@ -50,7 +50,11 @@ const Cart = () => {
               position: "relative"
             }}
           >
-            <IconButton aria-label="" sx={{ mr: 3 }}>
+            <IconButton onClick={() => {
+
+              dispatch(deleteProduct(item))
+
+            }} aria-label="" sx={{ mr: 3 }}>
               <DeleteIcon sx={{ color: "#607d8b" }} />
             </IconButton>
 
@@ -63,18 +67,27 @@ const Cart = () => {
               $100
             </Typography>
 
-            <IconButton onClick={() => {
-
-              dispatch(decreaseQuantity(item.quantity))
 
 
-            }}
+            <IconButton
 
 
 
+              className="add-remove" sx={{ ml: 1, mr: 2 }}
 
-              className="add-remove" sx={{ mr: 1 }}>
+              onClick={() => {
+
+                dispatch(decreaseQuantity(item.id))
+
+
+              }}
+
+
+
+            >
               <RemoveIcon sx={{ color: "#607d8b" }} />
+
+
             </IconButton>
 
             <StyledBadge badgeContent={item.quantity} color="secondary" />
