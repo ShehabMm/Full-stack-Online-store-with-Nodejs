@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-  allProducts: ["ali"],
+  allProducts: [],
 }
 
 export const counterSlice = createSlice({
@@ -19,13 +19,29 @@ export const counterSlice = createSlice({
 
   addQuantity: (state, action) => {
 
-    state.allProducts = action.payload
+    const choseItem = state.allProducts.find((item) => {
+      return item.id === action.payload 
+    })
+
+
+    choseItem.quantity += +1
+
+
   },
 
 
   decreaseQuantity: (state, action) => {
 
-    state.allProducts = action.payload
+    const choseItem = state.allProducts.find((item) => {
+      return item.id === action.payload 
+    })
+
+
+    choseItem.quantity -= 1
+
+
+
+
   },
 
 

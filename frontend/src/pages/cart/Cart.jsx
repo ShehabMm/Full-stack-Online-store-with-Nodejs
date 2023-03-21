@@ -7,7 +7,8 @@ import RemoveIcon from "@mui/icons-material/Remove";
 import Badge from "@mui/material/Badge";
 import "./Cart.css";
 import Divider from "@mui/material/Divider";
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { addQuantity, decreaseQuantity } from "Redux/counterSlice";
 
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
@@ -18,6 +19,8 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 }));
 
 const Cart = () => {
+  const dispatch = useDispatch()
+
 
   const theme = useTheme();
   // @ts-ignore
@@ -43,7 +46,7 @@ const Cart = () => {
               flexDirection: "row",
               flexWrap: "wrap",
               alignItems: "center",
-              mb: 2,
+              mb: 8,
               position: "relative"
             }}
           >
@@ -60,7 +63,12 @@ const Cart = () => {
               $100
             </Typography>
 
-            <IconButton
+            <IconButton onClick={() => {
+
+              dispatch(decreaseQuantity(item.quantity))
+
+
+            }}
 
 
 
@@ -69,9 +77,19 @@ const Cart = () => {
               <RemoveIcon sx={{ color: "#607d8b" }} />
             </IconButton>
 
-            <StyledBadge badgeContent={0} color="secondary" />
+            <StyledBadge badgeContent={item.quantity} color="secondary" />
 
-            <IconButton className="add-remove" sx={{ ml: 1, mr: 2 }}>
+            <IconButton
+
+              onClick={() => {
+
+                dispatch(addQuantity(item.id))
+
+
+
+              }}
+
+              className="add-remove" sx={{ ml: 1, mr: 2 }}>
               <AddIcon sx={{ color: "#607d8b" }} />
             </IconButton>
 
