@@ -64,7 +64,7 @@ const Home = () => {
                 image={item.imageLink[2]}
                 alt="Paella dish"
                 onClick={() => {
-                  navigate("/productdetails");
+                  navigate(`/productdetails/${item.id}`);
                 }}
               />
               <CardContent>
