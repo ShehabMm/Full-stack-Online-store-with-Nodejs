@@ -1,12 +1,28 @@
 import React from "react";
+import { useGetOneProductQuery } from "Redux/productsApi";
 import "./productDetails.css";
+import { useParams } from 'react-router-dom';
+
+
 
 const Productdetails = () => {
+  let { id } = useParams();
+
+
+  const { data, error, isLoading } = useGetOneProductQuery(id)
+
+  console.log(data)
+
+
+if (data) {
   return (
+
+
+
     <div className="card-products">
       <div className="left">
         <img
-          src="https://www.dropbox.com/s/e928cht0h5crcn4/shoe.png?raw=1"
+          src={data.imageLink[2]}
           alt="shoe"
         />
         <i className="fa fa-long-arrow-left"></i>
@@ -15,19 +31,19 @@ const Productdetails = () => {
       <div className="right">
         <div className="product-info">
           <div className="product-name">
-            <h1>Airmax</h1>
+            <h1>{data.description}</h1>
             <i className="fa fa-search"></i>
             <i className="fa fa-user"></i>
             <i className="fa fa-shopping-cart"></i>
           </div>
           <div className="details">
-            <h3>Winter Collection</h3>
-            <h2>Men Black Sneakers</h2>
+            <h3>Summer Collection</h3>
+            <h2>{data.productName}</h2>
             <h4>
-              <span className="fa fa-dollar"></span>150
+              <span className="fa fa-dollar"></span>${data.price}
             </h4>
             <h4 className="dis">
-              <span className="fa fa-dollar"></span>200
+              <span className="fa fa-dollar"></span>500
             </h4>
           </div>
           <ul>
@@ -54,6 +70,9 @@ const Productdetails = () => {
       </div>
     </div>
   );
+
+}
+
 };
 
 export default Productdetails;

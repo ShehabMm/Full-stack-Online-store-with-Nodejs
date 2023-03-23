@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
 // Or from '@reduxjs/toolkit/query/react'
 import { setupListeners } from '@reduxjs/toolkit/query'
-import { productsApi } from './productsApi'
+import { oneProductApi, productsApi } from './productsApi'
 import counterReducer from './counterSlice'
 
 export const store = configureStore({
@@ -10,11 +10,13 @@ export const store = configureStore({
     counter: counterReducer,
 
     [productsApi.reducerPath]: productsApi.reducer,
+    [oneProductApi.reducerPath]: oneProductApi.reducer,
+
   },
   // Adding the api middleware enables caching, invalidation, polling,
   // and other useful features of `rtk-query`.
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(productsApi.middleware),
+    getDefaultMiddleware().concat(productsApi.middleware).concat(oneProductApi.middleware),
 })
 
 // optional, but required for refetchOnFocus/refetchOnReconnect behaviors

@@ -206,7 +206,7 @@ li {
   margin-top: 2%;
 }
 
-.left {
+/* .left {
   content: "";
   height: 395px;
   width: 330px;
@@ -217,7 +217,7 @@ li {
   border-radius: 0% 50% 50% 0%;
   position: absolute;
   z-index: 5;
-}
+} */
 
 .left img {
   margin-left: -88px;
@@ -249,4 +249,12 @@ li {
   
 
 
+}
+
+.card-products img{
+
+  width: 500px;
+  height: 500px;
+  position:fixed;
+  z-index: 5;
 }
