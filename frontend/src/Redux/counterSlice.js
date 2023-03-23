@@ -1,9 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  allProducts: [],
-  allProductsID: [],
-};
+  allProducts: localStorage.getItem("allProducts") ? JSON.parse(localStorage.getItem("allProducts")) : [],
+  allProductsID: localStorage.getItem("allProducts")? JSON.parse(localStorage.getItem("allProductsID")): [],
+}
+
 
 export const counterSlice = createSlice({
   name: "cart",
@@ -13,6 +14,9 @@ export const counterSlice = createSlice({
       const productWithQuantity = { ...action.payload, quantity: 1 };
       state.allProducts.push(productWithQuantity);
       state.allProductsID.push(action.payload.id);
+      localStorage.setItem("allProducts", JSON.stringify(state.allProducts))
+      localStorage.setItem("allProductsID", JSON.stringify(state.allProductsID))
+
     },
 
     addQuantity: (state, action) => {

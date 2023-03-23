@@ -25,13 +25,13 @@ const Cart = () => {
   const theme = useTheme();
   // @ts-ignore
   const { allProducts } = useSelector((state) => state.counter);
-
+let subTotal = 0
   // Why <<<component="form">>> ?
   return (
     <Stack sx={{ display: "flex", flexDirection: "column", flexWrap: "wrap" }}>
 
       {allProducts.map((item) => {
-
+subTotal += Number(item.price) * Number(item.quantity)
         return (
 
 
@@ -64,7 +64,7 @@ const Cart = () => {
               color="error"
               sx={{ mr: 10 }}
             >
-              $100
+              ${Number(item.price) * Number(item.quantity)}
             </Typography>
 
 
@@ -165,7 +165,7 @@ const Cart = () => {
           </Typography>
           <Typography variant="h6" color="white">
             {" "}
-            $100
+            ${subTotal}   
           </Typography>
         </Paper>
         <Divider light />
