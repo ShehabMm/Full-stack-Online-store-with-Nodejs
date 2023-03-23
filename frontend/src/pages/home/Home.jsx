@@ -16,6 +16,7 @@ import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import Badge from "@mui/material/Badge";
 
+
 const StyledBadge = styled(Badge)(({ theme }) => ({
   "& .MuiBadge-badge": {
     backgroundColor: "#5d4037",
@@ -24,29 +25,32 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 }));
 
 const Home = () => {
-  // @ts-ignore
-  const { allProductsID } = useSelector((state) => state.counter);
-  // @ts-ignore
-  // const { allProducts } = useSelector((state) => state.counter);
 
 
-  const navigate = useNavigate();
-  const { data, isLoading } = useGetproductsByNameQuery();
-  const dispatch = useDispatch();
 
-  // if (error) {
-  //   return (
-  //     <h1>sorry something wrong</h1>
+    // @ts-ignore
+    const { allProductsID } = useSelector((state) => state.counter);
+    // @ts-ignore
+    // const { allProducts } = useSelector((state) => state.counter);
 
-  //   )
-  // }
 
-  if (isLoading) {
-    return <CircularProgress />;
-  }
+    const navigate = useNavigate();
+    const { data, isLoading } = useGetproductsByNameQuery();
+    const dispatch = useDispatch();
 
-  if (data) {
-    return (
+    // if (error) {
+    //   return (
+    //     <h1>sorry something wrong</h1>
+
+    //   )
+    // }
+
+    if (isLoading) {
+      return <CircularProgress />;
+    }
+
+    if (data) {
+      return (
       <Stack
         direction={"row"}
         sx={{ flexWrap: "wrap", justifyContent: "center" }}
@@ -138,9 +142,34 @@ const Home = () => {
             </Card>
           );
         })}
-      </Stack>
-    );
-  }
-};
 
-export default Home;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </Stack>
+
+
+
+      );
+
+    }
+  };
+
+  export default Home;

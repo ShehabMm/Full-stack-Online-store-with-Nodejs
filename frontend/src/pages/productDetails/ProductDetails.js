@@ -1,30 +1,28 @@
 import React from "react";
 import { useGetOneProductQuery } from "Redux/productsApi";
 import "./productDetails.css";
-import { useParams } from 'react-router-dom';
-
-
+import { useParams } from "react-router-dom";
+import { CircularProgress } from "@mui/material";
+import NotFound from "pages/NotFound";
 
 const Productdetails = () => {
   let { id } = useParams();
 
+  const { data, error, isLoading } = useGetOneProductQuery(id);
 
-  const { data, error, isLoading } = useGetOneProductQuery(id)
+  if (error) {
+    return <NotFound />;
+  }
 
-  console.log(data)
-
+  if (isLoading) {
+    return <CircularProgress />;
+  }
 
   if (data) {
     return (
-
-
-
       <div className="card-products">
         <div className="left">
-          <img
-            src={data.imageLink[2]}
-            alt="shoe"
-          />
+          <img src={data.imageLink[2]} alt="shoe" />
           <i className="fa fa-long-arrow-left"></i>
           <i className="fa fa-long-arrow-right"></i>
         </div>
@@ -70,19 +68,9 @@ const Productdetails = () => {
         </div>
 
         {/* //swiper react >>>>>>>>>>>>>> */}
-
-
-
-
       </div>
-
-
-
-
     );
-
   }
-
 };
 
 export default Productdetails;
