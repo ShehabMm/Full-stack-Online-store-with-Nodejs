@@ -15,6 +15,7 @@ import { addQuantity, decreaseQuantity } from "Redux/counterSlice";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import Badge from "@mui/material/Badge";
+import Swiper from "pages/swiper/swiper";
 
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
@@ -28,29 +29,29 @@ const Home = () => {
 
 
 
-    // @ts-ignore
-    const { allProductsID } = useSelector((state) => state.counter);
-    // @ts-ignore
-    // const { allProducts } = useSelector((state) => state.counter);
+  // @ts-ignore
+  const { allProductsID } = useSelector((state) => state.counter);
+  // @ts-ignore
+  // const { allProducts } = useSelector((state) => state.counter);
 
 
-    const navigate = useNavigate();
-    const { data, isLoading } = useGetproductsByNameQuery();
-    const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { data, isLoading } = useGetproductsByNameQuery();
+  const dispatch = useDispatch();
 
-    // if (error) {
-    //   return (
-    //     <h1>sorry something wrong</h1>
+  // if (error) {
+  //   return (
+  //     <h1>sorry something wrong</h1>
 
-    //   )
-    // }
+  //   )
+  // }
 
-    if (isLoading) {
-      return <CircularProgress />;
-    }
+  if (isLoading) {
+    return <CircularProgress />;
+  }
 
-    if (data) {
-      return (
+  if (data) {
+    return (
       <Stack
         direction={"row"}
         sx={{ flexWrap: "wrap", justifyContent: "center" }}
@@ -140,8 +141,12 @@ const Home = () => {
                 </Typography>
               </CardActions>
             </Card>
+
+
           );
         })}
+
+        <Swiper />
 
 
 
@@ -166,10 +171,9 @@ const Home = () => {
       </Stack>
 
 
+    );
 
-      );
+  }
+};
 
-    }
-  };
-
-  export default Home;
+export default Home;
