@@ -1,27 +1,32 @@
-
-.mySwiper{
-right:10%;
-width: 80vw !important;
-height: 500px !important;
-
-}
-.swiper-wrapper{
-
-  border:2px solid red;
-
-}
-.swiper {
-  position:absolute;
+main {
   display: flex;
   justify-content: center;
-  border:2px solid rgb(8, 196, 65);
+  align-items: center;
+
+}
+
+.swiper {
+  display: flex;
+  justify-content: center;
+  width: 80%;
+  height: 300px;
+  top: 20%;
+  left: 15%;
+
+}
+
+
+
+.swiper-wrapper {
+
+
 }
 
 .swiper-slide {
   text-align: center;
   font-size: 18px;
-  background: #fff;
-  width: 300px !important;
+  background: white;
+  width: 30% !important;
   height: 300px !important;
 
   /* Center slide text vertically */

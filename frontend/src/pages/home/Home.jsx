@@ -16,7 +16,7 @@ import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import Badge from "@mui/material/Badge";
 import ImageListMuiComponent from "MUI-components/imageList/imageList";
-
+import SwiperComponent from "pages/swiper/swiper";
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   "& .MuiBadge-badge": {
@@ -26,14 +26,10 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 }));
 
 const Home = () => {
-
-
-
   // @ts-ignore
   const { allProductsID } = useSelector((state) => state.counter);
   // @ts-ignore
   // const { allProducts } = useSelector((state) => state.counter);
-
 
   const navigate = useNavigate();
   const { data, isLoading } = useGetproductsByNameQuery();
@@ -81,12 +77,9 @@ const Home = () => {
                 disableSpacing
                 sx={{ justifyContent: "space-between" }}
               >
-
-
                 {/* ..//add to cart button or increase,decrease */}
 
-                {allProductsID.includes(item.id) ?
-
+                {allProductsID.includes(item.id) ? (
                   <>
                     <IconButton
                       className="add-remove"
@@ -103,16 +96,15 @@ const Home = () => {
                     <IconButton
                       onClick={() => {
                         dispatch(addQuantity(item.id));
-
-
-
                       }}
                       className="add-remove"
                       sx={{ right: 30 }}
                     >
                       <AddIcon fontSize="small" sx={{ color: "#607d8b" }} />
                     </IconButton>
-                  </> : <Button
+                  </>
+                ) : (
+                  <Button
                     onClick={() => {
                       dispatch(addToCart(item));
                     }}
@@ -126,65 +118,28 @@ const Home = () => {
                   >
                     Add to Cart
                   </Button>
-
-                }
-
-
-
-
-
-
-
+                )}
 
                 <Typography mr={1} variant="body1" color="error">
                   ${item.price}
                 </Typography>
               </CardActions>
             </Card>
-
-
           );
-        })}
+        })}   
+
+
+               <Stack   direction={"row"}
+        sx={{ flexWrap: "wrap", justifyContent: "center" }} >
 
 
 
+        <SwiperComponent />
+        <ImageListMuiComponent />
 
-<ImageListMuiComponent/>
-
-
-
-
-
-
-        
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        </Stack>
       </Stack>
-
-
     );
-
   }
 };
 
