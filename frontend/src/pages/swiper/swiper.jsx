@@ -1,48 +1,42 @@
-import { useState } from "react";
-import Carousel from "react-elastic-carousel";
-import Item from "./Item";
 import "./swiper.css";
+import {Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/swiper.min.css'
 
-const breakPoints = [
-  { width: 1, itemsToShow: 1 },
-  { width: 550, itemsToShow: 2, itemsToScroll: 2 },
-  { width: 768, itemsToShow: 3 },
-  { width: 1200, itemsToShow: 4 },
-];
 
-const Swiper = () => {
-  const [items, setItems] = useState([1, 2, 3, 4, 5, 6, 7, 8]);
 
-  const addItem = () => {
-    const nextItem = Math.max(1, items.length + 1);
-    setItems([...items, nextItem]);
-  };
 
-  const removeItem = () => {
-    const endRange = Math.max(0, items.length - 1);
-    setItems(items.slice(0, endRange));
-  };
 
+// const imgLink = [
+//   "https://res.cloudinary.com/dvytkrzaq/image/upload/v1679635328/online%20store/800px_COLOURBOX8072182_de1amq.jpg",
+//   "https://res.cloudinary.com/dvytkrzaq/image/upload/v1679635329/online%20store/black-bowler-hat-on-white-background-vector_n7f2ah.jpg",
+//   "https://res.cloudinary.com/dvytkrzaq/image/upload/v1679635328/online%20store/istockphoto-1152609532-170667a_wnxcc7.jpg",
+//   "https://res.cloudinary.com/dvytkrzaq/image/upload/v1679635327/online%20store/37-374963_download-hat-free-png-image-hat-in-white_owk3gk.jpg",
+  
+// ]
+
+
+
+const SwiperComponent = () => {
   return (
-    <>
-      <div className="App">
-        {/* <div className="controls-wrapper">
-          <button onClick={removeItem}>Remove Item</button>
-          <button className="top" onClick={addItem}>
-            Add Item
-          </button>
-        </div> */}
-        {/* <hr className="seperator" /> */}
-        <div className="carousel-wrapper">
-          <Carousel Carousel breakPoints={breakPoints}>
-            {items.map((item) => (
-              <Item key={item}>{item}</Item>
-            ))}
-          </Carousel>
-        </div>
-      </div>
-    </>
-  );
-};
+    <main>
+    <Swiper
+      spaceBetween={50}
+      slidesPerView={3}
+      // onSlideChange={() => console.log('slide change')}
+      // onSwiper={(swiper) => console.log(swiper)}
+    >
+      <SwiperSlide>Slide 1</SwiperSlide>
+      <SwiperSlide>Slide 2</SwiperSlide>
+      <SwiperSlide>Slide 3</SwiperSlide>
+      <SwiperSlide>Slide 4</SwiperSlide>
+      ...
+    </Swiper>
 
-export default Swiper;
+
+  
+
+    </main>
+  );
+}
+
+export default SwiperComponent;

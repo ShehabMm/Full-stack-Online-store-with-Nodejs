@@ -112,7 +112,7 @@ const Drawerr = ({
 
         {myList.map((item) => {
           return (
-            <ListItem
+            <ListItem key={item.text}
               sx={{
                 bgcolor:
                   currentLocation.pathname === item.path
