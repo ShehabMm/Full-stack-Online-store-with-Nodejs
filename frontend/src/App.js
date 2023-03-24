@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 import Cart from "pages/cart/Cart";
 import Productdetails from "pages/productDetails/ProductDetails";
-import Swiper from "pages/swiper/swiper"
+import SwiperComponent from "pages/swiper/swiper"
 import NotFound from "./pages/NotFound";
 
 const router = createBrowserRouter(
@@ -17,7 +17,7 @@ const router = createBrowserRouter(
       <Route index element={<Home />} />
       <Route path="cart" element={<Cart />} />
       <Route path="Productdetails/:id" element={<Productdetails />} />
-      <Route path="Swiper" element={<Swiper />} />
+      <Route path="SwiperComponent" element={<SwiperComponent />} />
 
 
 

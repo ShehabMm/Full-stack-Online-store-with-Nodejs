@@ -15,7 +15,6 @@ import { addQuantity, decreaseQuantity } from "Redux/counterSlice";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import Badge from "@mui/material/Badge";
-import Swiper from "pages/swiper/swiper";
 import ImageListMuiComponent from "MUI-components/imageList/imageList";
 
 
@@ -159,7 +158,7 @@ const Home = () => {
 
         
 
-        <Swiper />
+      
 
 
 
