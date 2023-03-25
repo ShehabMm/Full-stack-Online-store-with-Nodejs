@@ -9,7 +9,7 @@ import Button from "@mui/material/Button";
 import { useGetproductsByNameQuery } from "../../Redux/productsApi";
 import CircularProgress from "@mui/material/CircularProgress";
 import { addToCart } from "Redux/counterSlice";
-import { Form, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addQuantity, decreaseQuantity } from "Redux/counterSlice";
 import AddIcon from "@mui/icons-material/Add";
@@ -17,6 +17,7 @@ import RemoveIcon from "@mui/icons-material/Remove";
 import Badge from "@mui/material/Badge";
 import ImageListMuiComponent from "MUI-components/imageList/imageList";
 import SwiperComponent from "pages/swiper/swiper";
+import ContactForm from "MUI-components/form/Form";
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   "& .MuiBadge-badge": {
@@ -107,6 +108,7 @@ const Home = () => {
                   <Button
                     onClick={() => {
                       dispatch(addToCart(item));
+                    
                     }}
                     sx={{
                       textTransform: "capitalize",
@@ -139,7 +141,7 @@ const Home = () => {
           <ImageListMuiComponent />
 
         </Stack>
-        <Form />
+        <ContactForm />
 
 
 

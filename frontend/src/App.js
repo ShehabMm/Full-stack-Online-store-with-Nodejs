@@ -3,7 +3,6 @@ import Root from "./pages/Root";
 import {
   createBrowserRouter,
   createRoutesFromElements,
-  Form,
   Route,
   RouterProvider,
 } from "react-router-dom";
@@ -11,6 +10,11 @@ import Cart from "pages/cart/Cart";
 import Productdetails from "pages/productDetails/ProductDetails";
 import SwiperComponent from "pages/swiper/swiper"
 import NotFound from "./pages/NotFound";
+import ContactForm from './MUI-components/form/Form.jsx'
+import RealContact from "MUI-components/realContac/realContact";
+
+
+
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -19,8 +23,10 @@ const router = createBrowserRouter(
       <Route path="cart" element={<Cart />} />
       <Route path="Productdetails/:id" element={<Productdetails />} />
       <Route path="SwiperComponent" element={<SwiperComponent />} />
+      <Route path="ContactForm" element={<ContactForm />} />
+      <Route path="RealContact" element={<RealContact />} />
 
-      <Route path="Form" element={<Form />} />
+      RealContact
 
 
       <Route path="*" element={<NotFound />} />
