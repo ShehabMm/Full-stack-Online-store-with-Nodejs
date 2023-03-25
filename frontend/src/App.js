@@ -3,6 +3,7 @@ import Root from "./pages/Root";
 import {
   createBrowserRouter,
   createRoutesFromElements,
+  Form,
   Route,
   RouterProvider,
 } from "react-router-dom";
@@ -19,6 +20,7 @@ const router = createBrowserRouter(
       <Route path="Productdetails/:id" element={<Productdetails />} />
       <Route path="SwiperComponent" element={<SwiperComponent />} />
 
+      <Route path="Form" element={<Form />} />
 
 
       <Route path="*" element={<NotFound />} />

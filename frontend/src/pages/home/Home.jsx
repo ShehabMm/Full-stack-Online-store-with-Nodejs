@@ -9,7 +9,7 @@ import Button from "@mui/material/Button";
 import { useGetproductsByNameQuery } from "../../Redux/productsApi";
 import CircularProgress from "@mui/material/CircularProgress";
 import { addToCart } from "Redux/counterSlice";
-import { useNavigate } from "react-router-dom";
+import { Form, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addQuantity, decreaseQuantity } from "Redux/counterSlice";
 import AddIcon from "@mui/icons-material/Add";
@@ -48,7 +48,7 @@ const Home = () => {
 
   if (data) {
     return (
-      <Stack
+      <Stack className="mains"
         direction={"row"}
         sx={{ flexWrap: "wrap", justifyContent: "center" }}
       >
@@ -57,7 +57,7 @@ const Home = () => {
             <Card
               className="card"
               key={item.id}
-              sx={{ maxWidth: 277, mb: 6, mx: 2 }}
+              sx={{ maxWidth: 277, mb: 6, mx: 2, }}
             >
               <CardMedia
                 component="img"
@@ -126,18 +126,24 @@ const Home = () => {
               </CardActions>
             </Card>
           );
-        })}   
+        })}
 
 
-               <Stack   direction={"row"}
-        sx={{ flexWrap: "wrap", justifyContent: "center" }} >
+        <br />
+
+        <Stack direction={"row"}
+          sx={{ flexWrap: "wrap", justifyContent: "center" }} >
 
 
-
-        <SwiperComponent />
-        <ImageListMuiComponent />
+          <SwiperComponent />
+          <ImageListMuiComponent />
 
         </Stack>
+        <Form />
+
+
+
+
       </Stack>
     );
   }

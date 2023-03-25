@@ -92,7 +92,7 @@ const ImageListMuiComponent = () => {
   ];
   return (
     <div>
-          <ImageList sx={{ width:1080, height: 450 }}>
+          <ImageList sx={{ width:1080, height: 450, mb:80 }}>
       <ImageListItem key="Subheader" cols={4}>
         <ListSubheader component="div">Best Offers</ListSubheader>
       </ImageListItem>
