@@ -6,6 +6,9 @@ import ListSubheader from '@mui/material/ListSubheader';
 import IconButton from '@mui/material/IconButton';
 import InfoIcon from '@mui/icons-material/Info';
 import "./imageList.css"
+import ScrollReveal from 'scrollreveal';
+
+
 
 
 
@@ -92,7 +95,7 @@ const ImageListMuiComponent = () => {
   ];
   return (
     <div>
-          <ImageList sx={{ width:1080, height: 450, mb:80 }}>
+          <ImageList sx={{ width:1080, height: 450, mb:3, ml:7 }}>
       <ImageListItem key="Subheader" cols={4}>
         <ListSubheader component="div">Best Offers</ListSubheader>
       </ImageListItem>
@@ -123,5 +126,15 @@ const ImageListMuiComponent = () => {
     </div>
   );
 }
+
+
+ScrollReveal({    
+  reset: true,
+  distance:"60px",
+  duration:2500,
+  delay:400
+  
+  });
+  ScrollReveal().reveal('.imgho', { delay: 500,  });
 
 export default ImageListMuiComponent;

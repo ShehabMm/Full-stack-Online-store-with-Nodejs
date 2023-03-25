@@ -1,4 +1,10 @@
-html {
+
+  @import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Poppins:wght@100;300;400;500&display=swap');
+
+*{
+
+  font-family: 'Berkshire Swash', cursive;
+  font-family: 'Poppins', sans-serif;
 
   margin: 0;
   padding: 0;
@@ -7,13 +13,14 @@ html {
 
 }
 
+
+
+
 .hero {
 
   width: 100%;
   height: 80vh;
-  color: #21ce99;
   background-image: url('https://res.cloudinary.com/dvytkrzaq/image/upload/v1679720614/online%20store/47_q8c7r3.jpg');
-  border: 2px solid red;
   background-position: center;
   background-size: cover;
   display: flex;
@@ -40,7 +47,7 @@ form {
   width: 100%;
   padding: 10px;
   outline: 0;
-  border: 2px solid #21ce99;
+  border: 2px solid #161616;
   background: transparent;
   font-size: 1em;
   font-weight: 700;
@@ -55,12 +62,11 @@ form button {
 }
 
 .row {
-  display: flex;
+  display: inline-flex;
   justify-content: space-between;
   align-items: center;
 }
 
 .row .input-group {
   flex-basis: 48%;
-
 }

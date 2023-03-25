@@ -9,7 +9,7 @@ import Button from "@mui/material/Button";
 import { useGetproductsByNameQuery } from "../../Redux/productsApi";
 import CircularProgress from "@mui/material/CircularProgress";
 import { addToCart } from "Redux/counterSlice";
-import {  useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addQuantity, decreaseQuantity } from "Redux/counterSlice";
 import AddIcon from "@mui/icons-material/Add";
@@ -18,6 +18,8 @@ import Badge from "@mui/material/Badge";
 import ImageListMuiComponent from "MUI-components/imageList/imageList";
 import SwiperComponent from "pages/swiper/swiper";
 import ContactForm from "MUI-components/form/Form";
+import RealContact from "MUI-components/realContac/realContact";
+import ScrollReveal from 'scrollreveal';
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   "& .MuiBadge-badge": {
@@ -25,6 +27,8 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
     color: "#fff",
   },
 }));
+
+
 
 const Home = () => {
   // @ts-ignore
@@ -53,12 +57,15 @@ const Home = () => {
         direction={"row"}
         sx={{ flexWrap: "wrap", justifyContent: "center" }}
       >
+
+
         {data.map((item) => {
           return (
             <Card
               className="card"
               key={item.id}
               sx={{ maxWidth: 277, mb: 6, mx: 2, }}
+              
             >
               <CardMedia
                 component="img"
@@ -108,7 +115,7 @@ const Home = () => {
                   <Button
                     onClick={() => {
                       dispatch(addToCart(item));
-                    
+
                     }}
                     sx={{
                       textTransform: "capitalize",
@@ -141,14 +148,29 @@ const Home = () => {
           <ImageListMuiComponent />
 
         </Stack>
+
+        <RealContact  />
+
+
         <ContactForm />
 
 
-
+        
 
       </Stack>
     );
   }
 };
+
+
+ScrollReveal({    
+  reset: true,
+  distance:"60px",
+  duration:2500,
+  delay:400
+  
+  });
+  ScrollReveal().reveal('.card', { delay: 500, origin:'left', interval:200 });
+  ScrollReveal().reveal('.co', { delay: 500, origin:'bottom' });
 
 export default Home;
