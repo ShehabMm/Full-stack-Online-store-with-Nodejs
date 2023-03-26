@@ -3,8 +3,6 @@
 
 *{
 
-  font-family: 'Berkshire Swash', cursive;
-  font-family: 'Poppins', sans-serif;
 
   margin: 0;
   padding: 0;
@@ -20,7 +18,7 @@
 
   width: 100%;
   height: 80vh;
-  background-image: url('https://res.cloudinary.com/dvytkrzaq/image/upload/v1679720614/online%20store/47_q8c7r3.jpg');
+  background-image:linear-gradient(rgba(0,0,0,0.7),#3551b5), url('https://res.cloudinary.com/dvytkrzaq/image/upload/v1679720614/online%20store/47_q8c7r3.jpg');
   background-position: center;
   background-size: cover;
   display: flex;
@@ -50,9 +48,10 @@ form {
   border: 2px solid #161616;
   background: transparent;
   font-size: 1em;
-  font-weight: 700;
-  color: white;
+  font-weight: 2000 !important;
 }
+
+
 
 form button {
 

@@ -37,7 +37,7 @@ const RealContact = () => {
       <form ref={form} >
         <div className="row">
           <div className="input-group">
-            <TextField  autoComplete="off" id="" label="Name" variant="outlined" name="user_name" />
+            <TextField color='primary' autoComplete="off" id="" label="Name" variant="outlined" name="user_name" />
           </div>
 
           <div className="input-group">
@@ -46,7 +46,7 @@ const RealContact = () => {
         </div>
 
         <div className="input-group">
-          <TextField autoComplete="off"  id="" label="Subject" variant="outlined" sx={{ width: "420px" }} name="subject" />
+          <TextField autoComplete="off"  id="" label="Subject" variant="outlined" sx={{ width: "420px"}} name="subject" />
         </div>
 
         <div className="input-group">
