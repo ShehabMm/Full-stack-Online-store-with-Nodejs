@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   allProducts: localStorage.getItem("allProducts") ? JSON.parse(localStorage.getItem("allProducts")) : [],
-  allProductsID: localStorage.getItem("allProducts")? JSON.parse(localStorage.getItem("allProductsID")): [],
+  allProductsID: localStorage.getItem("allProducts") ? JSON.parse(localStorage.getItem("allProductsID")) : [],
 }
 
 
@@ -48,11 +48,29 @@ export const counterSlice = createSlice({
       });
       state.allProducts = newArray;
     },
+
+    deleteProductfromCart: (state, action) => {
+      const newArray = state.allProducts.filter((item) => {
+        return item.id !== action.payload.id;
+      });
+      state.allProducts = newArray;
+
+      const newArray2 = state.allProductsID.filter((item) => {
+        return item !== action.payload.id;
+      });
+      state.allProducts = newArray;
+      state.allProductsID = newArray2;
+
+    },
+
+
+    
+
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { addToCart, addQuantity, decreaseQuantity, deleteProduct } =
+export const { addToCart, addQuantity, decreaseQuantity, deleteProduct, deleteProductfromCart } =
   counterSlice.actions;
 
 export default counterSlice.reducer;
